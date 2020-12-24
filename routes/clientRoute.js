@@ -10,6 +10,15 @@ clientRoute.get('/get-all',async(req, res)=>{
         res.json(err)
     })
 })
+clientRoute.get('/get-single/:id',async(req, res)=>{
+    await clientModel.findOne({_id:req.params.id})
+    .then(client=>{
+        return res.status(200).json(client)
+    })
+    .catch(err=>{
+        res.json(err)
+    })
+})
 clientRoute.post('/create', async (req, res) => {
     let  existing =await clientModel.findOne({email:req.body.email})
     if(existing){

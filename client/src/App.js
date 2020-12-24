@@ -28,8 +28,9 @@ import Create from 'views/Create/Create'
 
 import './updatedcss.css'
 import UpgradePlan from 'views/UpgradePlan/UpgradePlan';
-import About from 'views/Help/About';
 import ManageUser from 'views/ManageUser/ManageUser';
+import AboutUs from 'views/AboutUs/AboutUs';
+import UpdateUser from 'views/Update/Update';
 
 const browserHistory = createBrowserHistory();
 
@@ -85,6 +86,14 @@ const App = () => {
           
           <Switch>
             <RouteWithLayout
+              component={UpdateUser}
+              exact
+              layout={MainLayout}
+              path="/update"
+            />
+          </Switch>
+          <Switch>
+            <RouteWithLayout
               component={Create}
               exact
               layout={MainLayout}
@@ -102,7 +111,7 @@ const App = () => {
           </Switch>
           <Switch>
             <RouteWithLayout
-              component={About}
+              component={AboutUs}
               exact
               layout={MainLayout}
               path="/about"

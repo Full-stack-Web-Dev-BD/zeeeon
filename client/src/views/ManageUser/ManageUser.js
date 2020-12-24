@@ -5,6 +5,7 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import Axios from 'axios';
 
 import jwtDecoder from 'jwt-decode'
+import { Link } from 'react-router-dom';
 
 
 
@@ -54,14 +55,14 @@ const ManageUser = () => {
   }
   return (
     <>
-      <div className="row pt-3 pb-5 bg-white ">
+      <div className="row pt-3 pb-5 bg-white " style={{ padding: '30px' }}>
         <div className="col-md-10 offset-md-1">
           <div>
             <h1>Manage User</h1>
           </div>
           <div className="row mt-4 pt-5">
             <div className="col-md-6 text-left">
-              <Typography > {client.length} Users</Typography>
+              <p style={{ fontWeight: '600', marginBottom: '20px' }}> {client.length} Users</p>
             </div>
             <div className="col-md-3 "></div>
             <div className="col-md-3 text-right">
@@ -72,11 +73,10 @@ const ManageUser = () => {
               </select>
             </div>
           </div>
-          <div>
-            <table class="table mt-5">
+          <div className="table-responsive">
+            <table class="table table-hover mt-5">
               <thead>
                 <tr className="noborder">
-                  <th scope="col"></th>
                   <th scope="col"><p className="txt">NAME</p> </th>
                   <th scope="col"><p className="txt">EMAIL</p></th>
                   <th scope="col"><p className="txt">ABOUT</p></th>
@@ -89,12 +89,12 @@ const ManageUser = () => {
                 {
                   client.map(el => (
                     <tr>
-                      <td className="lh5"></td>
-                      <td className="lh5"> {el.name} </td>
+                      <td style={{whiteSpace:'nowrap'}} className="lh5"> {el.name} </td>
                       <td className="lh5"> {el.email} </td>
-                      <td className="lh5"> {el.about} </td>
+                      <td style={{minWidth:'200px'}} className="lh5"> {el.about} </td>
                       <td className="lh5"> {new Date(el.validity) > new Date(Date.now()) ? <span className="active-status">Active</span> : <span className="inactive-status">Inactive</span>} </td>
                       <td className="lh5"> <button className="btn btn-danger" onClick={e => deleteClient(el._id)} > Delete </button> </td>
+                      <td className="lh5"> <Link to={`/update?id=${el._id}&id=${el._id}`}> <button className="btn btn-info"  > Edit </button> </Link></td>
                     </tr>
                   ))
                 }

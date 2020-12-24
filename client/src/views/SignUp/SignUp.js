@@ -163,143 +163,120 @@ const SignUp = props => {
 
 
   return (
-    <div className={classes.root}>
-      <Grid
-        className={classes.grid}
-        container
-      >
-        <Grid
-          className={classes.quoteContainer}
-          item
-          lg={5}
+    <div className="pt-5">
+      <div className=" col-md-4 offset-md-4 mt-5">
+
+        <form
+          className={classes.form}
+          onSubmit={handleSignUp}
         >
-        </Grid>
-        <Grid
-          className={classes.content}
-          item
-          lg={7}
-          xs={12}
-        >
-          <div className={classes.content}>
-            <div className={classes.contentHeader}>
-              <IconButton onClick={handleBack}>
-                <ArrowBackIcon />
-              </IconButton>
-            </div>
-            <div className={classes.contentBody}>
-              <form
-                className={classes.form}
-                onSubmit={handleSignUp}
-              >
-                <Typography variant="h3">
-                  Sign up here .
+          <Typography variant="h3">
+            Sign up here .
                 </Typography>
-                <TextField
-                  className={classes.textField}
-                  fullWidth
-                  error={error.name ? true : false}
-                  label="Name"
-                  name="Name"
-                  onChange={e => setName(e.target.value)}
-                  type="text"
-                  variant="outlined"
-                />
-                {
-                  error.name ?
-                    <p className="text-danger"> {error.name} </p>
-                    : ''
-                }
-                <TextField
-                  className={classes.textField}
-                  fullWidth
-                  label="Email"
-                  name="email"
-                  onChange={e => setEmail(e.target.value)}
-                  error={error.email ? true : false}
-                  type="email"
-                  variant="outlined"
-                />
+          <TextField
+            className={classes.textField}
+            fullWidth
+            error={error.name ? true : false}
+            label="Name"
+            name="Name"
+            onChange={e => setName(e.target.value)}
+            type="text"
+            variant="outlined"
+          />
+          {
+            error.name ?
+              <p className="text-danger"> {error.name} </p>
+              : ''
+          }
+          <TextField
+            className={classes.textField}
+            fullWidth
+            label="Email"
+            name="email"
+            onChange={e => setEmail(e.target.value)}
+            error={error.email ? true : false}
+            type="email"
+            variant="outlined"
+          />
 
-                {
-                  error.email ?
-                    <p className="text-danger"> {error.email} </p>
-                    : ''
-                }
-                <TextField
-                  className={classes.textField}
-                  fullWidth
-                  error={error.password ? true : false}
-                  label="Password"
-                  name="Password"
-                  onChange={e => setPassword(e.target.value)}
-                  type="password"
-                  variant="outlined"
-                />
+          {
+            error.email ?
+              <p className="text-danger"> {error.email} </p>
+              : ''
+          }
+          <TextField
+            className={classes.textField}
+            fullWidth
+            error={error.password ? true : false}
+            label="Password"
+            name="Password"
+            onChange={e => setPassword(e.target.value)}
+            type="password"
+            variant="outlined"
+          />
 
-                {
-                  error.password ?
-                    <p className="text-danger"> {error.password} </p>
-                    : ''
-                }
+          {
+            error.password ?
+              <p className="text-danger"> {error.password} </p>
+              : ''
+          }
 
-                <TextField
-                  className={classes.textField}
-                  fullWidth
-                  label="ConfirmPassword"
-                  name="ConfirmPassword"
-                  error={error.confirmPassword ? true : false}
-                  onChange={e => setConfirmPassword(e.target.value)}
-                  type="password"
-                  variant="outlined"
-                />
+          <TextField
+            className={classes.textField}
+            fullWidth
+            label="ConfirmPassword"
+            name="ConfirmPassword"
+            error={error.confirmPassword ? true : false}
+            onChange={e => setConfirmPassword(e.target.value)}
+            type="password"
+            variant="outlined"
+          />
 
-                {
-                  error.confirmPassword ?
-                    <p className="text-danger"> {error.confirmPassword} </p>
-                    : ''
-                }
-                {
-                  name && email && password && confirmPassword ?
+          {
+            error.confirmPassword ?
+              <p className="text-danger"> {error.confirmPassword} </p>
+              : ''
+          }
+          {
+            name && email && password && confirmPassword ?
 
-                    <Button
-                      className={classes.signUpButton}
-                      color="primary"
-                      fullWidth
-                      size="large"
-                      type="submit"
-                      variant="contained"
-                    >
-                      Sign up now
+              <Button
+                className={classes.signUpButton}
+                color="primary"
+                fullWidth
+                size="large"
+                type="submit"
+                variant="contained"
+              >
+                Sign up now
                     </Button> :
-                    <Button
-                      className={classes.signUpButton}
-                      fullWidth
-                      size="large"
-                      type="submit"
-                      variant="contained"
-                    >
-                      Please fill up All Required  Filled
+              <Button
+                className={classes.signUpButton}
+                fullWidth
+                size="large"
+                type="submit"
+                variant="contained"
+              >
+                Please fill up All Required  Filled
                 </Button>
 
-                }
-                <Typography
-                  color="textSecondary"
-                  variant="body1"
-                >
-                  Have an account?{''}
-                  <Link
-                    component={RouterLink}
-                    to="/"
-                    variant="h6"
-                  >
-                    Sign in
+          }
+          <Typography
+            color="textSecondary"
+            variant="body1"
+          >
+            Have an account?{''}
+            <Link
+              component={RouterLink}
+              to="/"
+              variant="h6"
+            >
+              Sign in
                   </Link>
-                </Typography>
-              </form>
-            </div>
-          </div>
-        </Grid>
-      </Grid>
+          </Typography>
+        </form>
+
+      </div>
     </div>
   );
 };

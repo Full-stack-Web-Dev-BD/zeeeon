@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Topbar = props => {
-  const { className, logoutUser, onSidebarOpen, ...rest } = props;
+  const { className, logoutUser,onMobileNavOpen, onSidebarOpen, ...rest } = props;
 
   const classes = useStyles();
 
@@ -63,15 +63,24 @@ const Topbar = props => {
         <div className={classes.flexGrow} />
         <Hidden mdDown>
         <ArrowForwardIcon style={{color:'black'}}/><span  onClick={e=>{logout()}} style={{color:'black',cursor:'pointer',fontWeight:500,marginRight:'60px'}}>Log Out</span>
-          {/* <IconButton onClick={logout} color="inherit">
+         
+        </Hidden>
+        <Hidden lgUp>
+          <IconButton
+            color="inherit"
+            onClick={ onSidebarOpen}
+          >
+            <MenuIcon color="secondary" />
+          </IconButton>
+           <IconButton onClick={logout} color="inherit">
             <Badge
               badgeContent={notifications.length}
               color="primary"
               variant="dot"
             >
-              <ExitToAppIcon />
+              <ExitToAppIcon color="secondary" />
             </Badge>
-          </IconButton> */}
+          </IconButton>
         </Hidden>
       </Toolbar>
     </AppBar>

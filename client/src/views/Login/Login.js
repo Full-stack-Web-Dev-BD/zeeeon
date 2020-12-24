@@ -156,30 +156,13 @@ const Login = props => {
       });
   }
   return (
-    <div className={classes.root}>
-      <Grid
-        className={classes.grid}
-        container
-      >
-        <Grid
-          className={classes.quoteContainer}
-          item
-          lg={5}
-        >
-        </Grid>
-        <Grid
-          className={classes.content}
-          item
-          lg={7}
-          xs={12}
-        >
-          <div className={classes.content}>
-            <div className={classes.contentBody}>
+    <div className="row mt-5">
+          <div className="col-md-4 offset-md-4 mt-5">
               <form
                 className={classes.form}
                 onSubmit={handleLogin}
               >
-                <Typography variant="h3">
+                <Typography variant="h3" className="mt-5">
                     Login here .
                 </Typography>
                 <TextField
@@ -254,9 +237,6 @@ const Login = props => {
                 </Typography>
               </form>
             </div>
-          </div>
-        </Grid>
-      </Grid>
     </div>
   );
 };

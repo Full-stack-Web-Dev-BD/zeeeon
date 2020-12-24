@@ -1,0 +1,17 @@
+.makeStyles-root-9{
+    background-color: #F7F7F7 !important;
+}
+.active-status{    
+    padding: 3px 17px;
+    color: white;
+    background: #46b1eb;
+    font-size: 12px;
+    border-radius: 100px;
+}
+.inactive-status{    
+    padding: 3px 17px;
+    color: white;
+    background: #e4a157;
+    font-size: 12px;
+    border-radius: 100px;
+}
